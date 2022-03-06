@@ -16,6 +16,7 @@ module.exports = merge(common, {
     compress: true, //开启gzip压缩
     static: path.resolve(__dirname, 'dist')
   },
+  // 配置环境变量
   plugins: [
     new webpack.DefinePlugin({
       "process.env": env,

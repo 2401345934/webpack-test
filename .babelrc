@@ -2,8 +2,10 @@
 {
   "presets": [
     "@babel/preset-env",
+    // 解决  react 编译
     "@babel/preset-react"
   ],
+  // 解决 async/ awiat 报错
   "plugins": [
     "@babel/plugin-transform-runtime"
   ]

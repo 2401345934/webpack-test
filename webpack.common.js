@@ -19,6 +19,7 @@ module.exports = {
     filename: "[name].[contenthash:8].js",
     clean: true, //每次构建清除dist包
   },
+  // 配置别名
   resolve: {
     extensions: [".js", ".jsx", ".json", ".vue"], //省略文件后缀
     alias: { //配置别名
@@ -27,11 +28,13 @@ module.exports = {
   },
   module: {
     rules: [
+      // 解析vue
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         include: [path.resolve(__dirname, 'src')]
       },
+      // 解析 js
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -41,6 +44,7 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/
       },
+      // 解析 css scss sass
       {
         test: /\.(css|scss|sass)$/,
         use: ["style-loader", "css-loader", { loader: "postcss-loader", options: { postcssOptions: { plugins: ["autoprefixer"], }, }, }, 'sass-loader'],
@@ -58,9 +62,11 @@ module.exports = {
     new ProgressBarPlugin({
       format: `  :msg [:bar] ${chalk.green.bold(":percent")} (:elapsed s)`,
     }),
+    // 解析vue loader
     new VueLoaderPlugin(),
 
   ],
+  // cdn 引入 排除build
   externals: {
     'vue': 'Vue',
     'vue-router': 'VueRouter'
