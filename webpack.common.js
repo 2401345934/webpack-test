@@ -21,6 +21,7 @@ module.exports = {
   },
   // 配置别名
   resolve: {
+    // 忽略文件后缀
     extensions: [".js", ".jsx", ".json", ".vue"], //省略文件后缀
     alias: { //配置别名
       "@": path.resolve(__dirname, "./src"),
